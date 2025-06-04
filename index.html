@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeepCityLabs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Orbitron', sans-serif;
+    }
+    body {
+      background: linear-gradient(to bottom, #1a001a, #000000);
+      color: #e0e0e0;
+      overflow-x: hidden;
+    }
+    header {
+      padding: 2rem;
+      text-align: center;
+      background: rgba(26, 0, 26, 0.9);
+      box-shadow: 0 0 30px #ff007f55;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      font-size: 3rem;
+      letter-spacing: 2px;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    nav a {
+      color: #ff007f;
+      text-decoration: none;
+      font-size: 1.2rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #9b00ff;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #9b00ff;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    nav a:hover::after {
+      transform: scaleX(1);
+    }
+    section {
+      padding: 5rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeIn 1s ease-in-out;
+    }
+    section h2 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      border-left: 4px solid #9b00ff;
+      padding-left: 1rem;
+      animation: slideIn 1s ease-in-out;
+    }
+    section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ccc;
+      animation: fadeInUp 1.5s ease-in-out;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #1a001a;
+      color: #888;
+      font-size: 0.9rem;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff007f, 0 0 20px #9b00ff; }
+      to { text-shadow: 0 0 20px #9b00ff, 0 0 30px #ff007f; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideIn {
+      from { transform: translateX(-100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    .tab-section:hover {
+      background: rgba(255, 0, 127, 0.05);
+      transition: background 0.5s;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>DeepCityLabs</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about" class="tab-section">
+    <h2>About</h2>
+    <p>DeepCityLabs is a cyber intelligence and research collective focused on Red Team operations, Threat Hunting, Malware Development, Exploit Research, and Incident Response. We bring the underground to the surface with elite-grade tools and training.</p>
+  </section>
+
+  <section id="projects" class="tab-section">
+    <h2>Projects</h2>
+    <p>Explore our GitHub repositories for red team toolkits, malware analysis frameworks, and custom-built exploit code. Everything is open-source and community-driven.</p>
+  </section>
+
+  <section id="services" class="tab-section">
+    <h2>Services</h2>
+    <p>We offer cybersecurity training, red team simulation, malware dissection labs, and post-incident investigations. Designed for enterprises, researchers, and elite learners.</p>
+  </section>
+
+  <section id="contact" class="tab-section">
+    <h2>Contact</h2>
+    <p>Connect with us via GitHub (@deep1792) or YouTube (@deepanshukhannahacker). More contact features coming soon!</p>
+  </section>
+
+  <footer>
+    &copy; 2025 DeepCityLabs. All rights reserved.
+  </footer>
+</body>
+</html>
