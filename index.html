@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DeepCityLabs</title>
-  <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Major+Mono+Display&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -13,170 +13,130 @@
     }
     body {
       font-family: 'Major Mono Display', monospace;
-      background: linear-gradient(to bottom, #2c003e, #000040);
+      background: linear-gradient(to bottom, #1c0033, #000030);
       color: #f0f0f5;
       overflow-x: hidden;
     }
     header {
-      padding: 2rem;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: url('https://images.unsplash.com/photo-1549921296-3a6b1c8f5e63?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      color: #fff;
       text-align: center;
-      background: rgba(44, 0, 62, 0.95);
-      box-shadow: 0 0 30px #ff00aa88;
-      position: sticky;
+      position: relative;
+    }
+    header::before {
+      content: '';
+      position: absolute;
       top: 0;
-      z-index: 1000;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: 1;
     }
     header h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 3.5rem;
-      letter-spacing: 3px;
-      color: #ff00aa;
+      font-size: 4rem;
+      letter-spacing: 4px;
+      z-index: 2;
       animation: glow 2s ease-in-out infinite alternate;
-      text-transform: uppercase;
+    }
+    header p {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      z-index: 2;
     }
     nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #1c0033;
       display: flex;
       justify-content: center;
-      gap: 2.5rem;
-      margin-top: 1.2rem;
+      gap: 2rem;
+      padding: 1rem 0;
+      z-index: 1000;
+      box-shadow: 0 0 10px #ff00aa88;
     }
     nav a {
-      font-family: 'Orbitron', sans-serif;
       color: #00fff7;
       text-decoration: none;
-      font-size: 1.3rem;
-      position: relative;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1rem;
       transition: color 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
     }
     nav a:hover {
       color: #ff00aa;
     }
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, #ff00aa, #00fff7);
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.35s ease;
-      border-radius: 3px;
-    }
-    nav a:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
     section {
       padding: 5rem 2rem;
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
-      animation: fadeIn 1s ease-in-out;
-      font-family: 'Major Mono Display', monospace;
     }
     section h2 {
-      margin-bottom: 1rem;
-      font-size: 2.4rem;
-      border-left: 5px solid #00fff7;
-      padding-left: 1rem;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
       color: #00fff7;
-      animation: slideIn 1s ease-in-out;
-      text-transform: uppercase;
-      letter-spacing: 2px;
     }
     section p {
-      font-size: 1.15rem;
-      line-height: 1.75;
-      color: #ddd;
-      animation: fadeInUp 1.5s ease-in-out;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #ccc;
     }
     footer {
       text-align: center;
       padding: 2rem;
-      background-color: #2c003e;
-      color: #666;
-      font-size: 0.9rem;
-      font-family: 'Major Mono Display', monospace;
+      background-color: #1a002a;
+      color: #999;
     }
     @keyframes glow {
       from {
-        text-shadow: 0 0 12px #ff00aa, 0 0 25px #ff00aacc;
+        text-shadow: 0 0 10px #ff00aa, 0 0 20px #ff00aa;
       }
       to {
-        text-shadow: 0 0 25px #00fff7, 0 0 40px #00fff7cc;
+        text-shadow: 0 0 20px #00fff7, 0 0 40px #00fff7;
       }
-    }
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    @keyframes slideIn {
-      from {
-        transform: translateX(-120px);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-    .tab-section:hover {
-      background: rgba(255, 0, 170, 0.07);
-      transition: background 0.4s;
-      border-radius: 12px;
     }
   </style>
 </head>
 <body>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
   <header>
     <h1>DeepCityLabs</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <p>Cyber Intelligence. Red Teams. Exploits. Real Impact.</p>
   </header>
 
-  <section id="about" class="tab-section">
-    <h2>About</h2>
-    <p>DeepCityLabs is a cyber intelligence and research collective focused on Red Team operations, Threat Hunting, Malware Development, Exploit Research, and Incident Response. We bring the underground to the surface with elite-grade tools and training.</p>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We are a cyber intelligence and red teaming collective on the frontier of threat hunting, malware engineering, and security innovation. Our team pushes boundaries to uncover, dissect, and weaponize vulnerabilities—always ethically, always creatively.</p>
   </section>
 
-  <section id="projects" class="tab-section">
-    <h2>Projects</h2>
-    <p>Explore our GitHub repositories for red team toolkits, malware analysis frameworks, and custom-built exploit code. Everything is open-source and community-driven.</p>
+  <section id="projects">
+    <h2>Our Projects</h2>
+    <p>From custom malware frameworks to OSINT automation, our GitHub is home to elite tools built for adversarial simulation and real-world attack emulation.</p>
   </section>
 
-  <section id="services" class="tab-section">
+  <section id="services">
     <h2>Services</h2>
-    <p>We offer cybersecurity training, red team simulation, malware dissection labs, and post-incident investigations. Designed for enterprises, researchers, and elite learners.</p>
+    <p>We offer red team operations, malware reverse engineering, threat intelligence training, and incident response for organizations seeking to evolve their defenses.</p>
   </section>
 
-  <section id="contact" class="tab-section">
+  <section id="contact">
     <h2>Contact</h2>
-    <p>Connect with us via GitHub (@deep1792) or YouTube (@deepanshukhannahacker). More contact features coming soon!</p>
+    <p>Reach out via GitHub (@deep1792) or YouTube (@deepanshukhannahacker). We respond quickly to interesting challenges and collaborations.</p>
   </section>
 
   <footer>
-    &copy; 2025 DeepCityLabs. All rights reserved.
+    &copy; 2025 DeepCityLabs. Crafted in code.
   </footer>
 </body>
 </html>
