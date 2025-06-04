@@ -2,285 +2,202 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DeepCityLabs</title>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg-color: #000;
-      --text-color: #00ffcc;
-      --accent-color: #ff00aa;
-      --card-bg: #0a0a0a;
-      --nav-bg: #000;
-      --nav-border: #00ffcc33;
-      --shadow-color: #00ffcc22;
-      --popup-bg: rgba(0,0,0,0.95);
-      --popup-text: #00ffcc;
-      --popup-shadow: #ff00aa;
-    }
-    body.dark {
-      --bg-color: #111;
-      --text-color: #ff00aa;
-      --accent-color: #00ffcc;
-      --card-bg: #1a001a;
-      --nav-bg: #110011;
-      --nav-border: #ff00aa44;
-      --shadow-color: #ff00aa55;
-      --popup-bg: rgba(20,0,20,0.95);
-      --popup-text: #ff00aa;
-      --popup-shadow: #00ffcc;
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Orbitron', sans-serif;
     }
-    html, body {
-      height: 100%;
-      font-family: 'Share Tech Mono', monospace;
-      background: var(--bg-color);
-      color: var(--text-color);
+    body {
+      background: linear-gradient(to bottom, #000000, #0a0a0a);
+      color: #00ffcc;
       overflow-x: hidden;
-      transition: background-color 0.5s, color 0.5s;
     }
-
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0; left: 0;
-      height: 100%;
-      width: 100%;
-      background: url('https://i.ibb.co/r0Y3Vk1/matrix.gif') repeat center center;
-      background-size: cover;
-      opacity: 0.07;
-      z-index: -1;
-      transition: opacity 0.5s;
-    }
-
-    nav {
-      position: fixed;
-      width: 100%;
-      background: var(--nav-bg);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      border-bottom: 1px solid var(--nav-border);
-      z-index: 20;
-      align-items: center;
-      user-select: none;
-    }
-    nav a {
-      color: var(--text-color);
-      text-decoration: none;
-      font-size: 1.1rem;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: var(--accent-color);
-    }
-    #darkModeToggle {
-      margin-left: auto;
-      cursor: pointer;
-      background: none;
-      border: 1.5px solid var(--text-color);
-      border-radius: 6px;
-      padding: 0.3rem 0.6rem;
-      color: var(--text-color);
-      font-size: 0.9rem;
-      user-select: none;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    #darkModeToggle:hover {
-      background-color: var(--accent-color);
-      color: var(--bg-color);
-      border-color: var(--accent-color);
-    }
-
     header {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: radial-gradient(circle at center, #000010 0%, var(--bg-color) 100%);
       padding: 2rem;
-      transition: background 0.5s;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.9);
+      box-shadow: 0 0 30px #00ffcc55;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     header h1 {
-      font-size: 3.5rem;
-      color: var(--text-color);
+      font-size: 3rem;
+      letter-spacing: 2px;
       animation: glow 2s ease-in-out infinite alternate;
-      transition: color 0.5s;
     }
-    .typing {
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      color: var(--accent-color);
-      border-right: 2px solid;
-      width: 22ch;
-      white-space: nowrap;
-      overflow: hidden;
-      animation: typing 4s steps(22) 1s 1 normal both, blink 0.7s infinite;
-      transition: color 0.5s;
-    }
-
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 22ch; }
-    }
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color);
-      }
-      to {
-        text-shadow: 0 0 20px var(--text-color), 0 0 30px var(--text-color);
-      }
-    }
-
-    section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: var(--accent-color);
-      border-left: 4px solid var(--accent-color);
-      padding-left: 1rem;
-      transition: color 0.5s;
-    }
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--nav-border);
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px var(--shadow-color);
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-      user-select: none;
-    }
-    .card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 20px var(--accent-color);
-      border-color: var(--accent-color);
-    }
-    .card h3 {
-      margin-bottom: 0.5rem;
-    }
-
-    .contact-links {
+    nav {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       gap: 2rem;
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
-    .contact-links a {
-      font-size: 1.3rem;
-      color: var(--text-color);
+    nav a {
+      color: #00ffcc;
       text-decoration: none;
-      transition: color 0.3s;
+      font-size: 1.2rem;
+      position: relative;
+      transition: color 0.3s ease;
     }
-    .contact-links a:hover {
-      color: var(--accent-color);
+    nav a:hover {
+      color: #00ffaa;
     }
-
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #00ffaa;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    nav a:hover::after {
+      transform: scaleX(1);
+    }
+    section {
+      padding: 5rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeIn 1s ease-in-out;
+    }
+    section h2 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      border-left: 4px solid #00ffaa;
+      padding-left: 1rem;
+      animation: slideIn 1s ease-in-out;
+    }
+    section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ccc;
+      animation: fadeInUp 1.5s ease-in-out;
+    }
     footer {
       text-align: center;
       padding: 2rem;
-      background-color: var(--card-bg);
-      color: #888;
-      user-select: none;
-      transition: background-color 0.5s;
+      background-color: #0d0d0d;
+      color: #666;
+      font-size: 0.9rem;
     }
-
-    /* === Terminal Popup === */
-    #terminalPopup {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.9);
-      background: var(--popup-bg);
-      border-radius: 12px;
-      box-shadow: 0 0 40px var(--popup-shadow);
-      color: var(--popup-text);
-      width: 90%;
-      max-width: 600px;
-      max-height: 80vh;
-      overflow-y: auto;
-      padding: 2rem;
-      font-family: 'Share Tech Mono', monospace;
-      z-index: 50;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease, transform 0.3s ease;
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc; }
+      to { text-shadow: 0 0 20px #00ffaa, 0 0 30px #00ffaa; }
     }
-    #terminalPopup.show {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translate(-50%, -50%) scale(1);
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
-    #terminalPopup h3 {
-      margin-bottom: 1rem;
-      color: var(--accent-color);
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    #terminalPopup pre {
-      background: #111;
-      padding: 1rem;
+    @keyframes slideIn {
+      from { transform: translateX(-100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    .tab-section:hover {
+      background: rgba(255, 255, 255, 0.05);
+      transition: background 0.5s;
+      border-radius: 10px;
+    }
+    .book-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .book-item {
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .book-item img {
+      width: 200px;
+      height: auto;
       border-radius: 8px;
-      overflow-x: auto;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      font-size: 1rem;
-      line-height: 1.4;
+      margin-bottom: 1rem;
     }
-    #closePopup {
-      position: absolute;
-      top: 12px;
-      right: 18px;
-      background: transparent;
-      border: none;
+    .book-item h3 {
       font-size: 1.5rem;
-      color: var(--accent-color);
-      cursor: pointer;
-      user-select: none;
-      transition: color 0.3s;
+      color: #00ffaa;
     }
-    #closePopup:hover {
-      color: var(--text-color);
+    .book-item p {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 1rem;
     }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2.5rem;
-      }
-      .typing {
-        font-size: 1rem;
-      }
+    .book-item a {
+      color: #00ffaa;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    .book-item a:hover {
+      color: #00ffcc;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#contact">Contact</a>
-    <button id="darkModeToggle" aria-label="Toggle Dark Mode">Neon Mode</button>
-  </nav>
-
   <header>
-    <h1>DeepCity
+    <h1>DeepCityLabs</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#services">Services</a>
+      <a href="#research">Research</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about" class="tab-section">
+    <h2>About</h2>
+    <p>DeepCityLabs is a cyber intelligence and research collective focused on Red Team operations, Threat Hunting, Malware Development, Exploit Research, and Incident Response. We bring the underground to the surface with elite-grade tools and training.</p>
+  </section>
+
+  <section id="projects" class="tab-section">
+    <h2>Projects</h2>
+    <p>Explore our GitHub repositories for red team toolkits, malware analysis frameworks, and custom-built exploit code. Everything is open-source and community-driven.</p>
+  </section>
+
+  <section id="services" class="tab-section">
+    <h2>Services</h2>
+    <p>We offer cybersecurity training, red team simulation, malware dissection labs, and post-incident investigations. Designed for enterprises, researchers, and elite learners.</p>
+  </section>
+
+  <section id="research" class="tab-section">
+    <h2>Research & Publications</h2>
+    <p>Explore my published works in cybersecurity, digital forensics, and network security:</p>
+    <ul class="book-list">
+      <li class="book-item">
+        <img src="https://covers1.booksamillion.com/covers/bam/9/36/589/871/9365898714_b.jpg" alt="Digital Forensics and Incident Response" />
+        <h3>Digital Forensics and Incident Response</h3>
+        <p>A practical guide to using Kali Linux for cyber investigations, covering data acquisition, memory forensics, and incident response frameworks.</p>
+        <a href="https://www.barnesandnoble.com/w/digital-forensics-and-incident-response-deepanshukhanna/1146391734" target="_blank">Learn More</a>
+      </li>
+      <li class="book-item">
+        <img src="https://covers1.booksamillion.com/covers/bam/1/78/995/348/1789953480_b.jpg" alt="Network Protocols for Security Professionals" />
+        <h3>Network Protocols for Security Professionals</h3>
+        <p>Probe and identify network-based vulnerabilities and safeguard against network protocol breaches, with practical examples and tools.</p>
+        <a href="https://www.packtpub.com/en-us/product/network-protocols-for-security-professionals-9781789953480" target="_blank">Learn More</a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="contact" class="tab-section">
+    <h2>Contact</h2>
+    <p>Connect with me via GitHub (@deep1792), LinkedIn (@deepanshukhanna), or YouTube (@deepanshukhannahacker). More contact features coming soon!</p>
+  </section>
+
+  <footer>
+    &copy; 2025 DeepCityLabs. All rights reserved.
+  </footer>
+</body>
+</html>
