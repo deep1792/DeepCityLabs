@@ -101,6 +101,20 @@
         text-shadow: 0 0 20px #00fff7, 0 0 40px #00fff7;
       }
     }
+    .contact-links {
+      display: flex;
+      gap: 2rem;
+      font-size: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .contact-links a {
+      color: #00fff7;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .contact-links a:hover {
+      color: #ff00aa;
+    }
   </style>
 </head>
 <body>
@@ -110,6 +124,7 @@
     <a href="#services">Services</a>
     <a href="#contact">Contact</a>
   </nav>
+
   <header>
     <h1>DeepCityLabs</h1>
     <p>Cyber Intelligence. Red Teams. Exploits. Real Impact.</p>
@@ -132,7 +147,12 @@
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Reach out via GitHub (@deep1792) or YouTube (@deepanshukhannahacker). We respond quickly to interesting challenges and collaborations.</p>
+    <p>Let’s connect on platforms that matter:</p>
+    <div class="contact-links">
+      <a href="https://github.com/deep1792" target="_blank">🐙 GitHub</a>
+      <a href="https://www.linkedin.com/in/deepanshu-khanna-hacker" target="_blank">💼 LinkedIn</a>
+      <a href="https://www.youtube.com/@deepanshukhannahacker" target="_blank">▶️ YouTube</a>
+    </div>
   </section>
 
   <footer>
