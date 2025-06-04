@@ -4,109 +4,143 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DeepCityLabs</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Orbitron', sans-serif;
     }
     body {
-      background: linear-gradient(to bottom, #1a001a, #000000);
-      color: #e0e0e0;
+      font-family: 'Major Mono Display', monospace;
+      background: linear-gradient(to bottom, #2c003e, #000040);
+      color: #f0f0f5;
       overflow-x: hidden;
     }
     header {
       padding: 2rem;
       text-align: center;
-      background: rgba(26, 0, 26, 0.9);
-      box-shadow: 0 0 30px #ff007f55;
+      background: rgba(44, 0, 62, 0.95);
+      box-shadow: 0 0 30px #ff00aa88;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
     header h1 {
-      font-size: 3rem;
-      letter-spacing: 2px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3.5rem;
+      letter-spacing: 3px;
+      color: #ff00aa;
       animation: glow 2s ease-in-out infinite alternate;
+      text-transform: uppercase;
     }
     nav {
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      margin-top: 1rem;
+      gap: 2.5rem;
+      margin-top: 1.2rem;
     }
     nav a {
-      color: #ff007f;
+      font-family: 'Orbitron', sans-serif;
+      color: #00fff7;
       text-decoration: none;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       position: relative;
       transition: color 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
     }
     nav a:hover {
-      color: #9b00ff;
+      color: #ff00aa;
     }
     nav a::after {
       content: '';
       position: absolute;
-      bottom: -5px;
+      bottom: -6px;
       left: 0;
       width: 100%;
-      height: 2px;
-      background-color: #9b00ff;
+      height: 3px;
+      background: linear-gradient(90deg, #ff00aa, #00fff7);
       transform: scaleX(0);
-      transition: transform 0.3s ease;
+      transform-origin: right;
+      transition: transform 0.35s ease;
+      border-radius: 3px;
     }
     nav a:hover::after {
       transform: scaleX(1);
+      transform-origin: left;
     }
     section {
       padding: 5rem 2rem;
-      max-width: 1000px;
+      max-width: 900px;
       margin: auto;
       animation: fadeIn 1s ease-in-out;
+      font-family: 'Major Mono Display', monospace;
     }
     section h2 {
       margin-bottom: 1rem;
-      font-size: 2rem;
-      border-left: 4px solid #9b00ff;
+      font-size: 2.4rem;
+      border-left: 5px solid #00fff7;
       padding-left: 1rem;
+      color: #00fff7;
       animation: slideIn 1s ease-in-out;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
     section p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #ccc;
+      font-size: 1.15rem;
+      line-height: 1.75;
+      color: #ddd;
       animation: fadeInUp 1.5s ease-in-out;
     }
     footer {
       text-align: center;
       padding: 2rem;
-      background-color: #1a001a;
-      color: #888;
+      background-color: #2c003e;
+      color: #666;
       font-size: 0.9rem;
+      font-family: 'Major Mono Display', monospace;
     }
     @keyframes glow {
-      from { text-shadow: 0 0 10px #ff007f, 0 0 20px #9b00ff; }
-      to { text-shadow: 0 0 20px #9b00ff, 0 0 30px #ff007f; }
+      from {
+        text-shadow: 0 0 12px #ff00aa, 0 0 25px #ff00aacc;
+      }
+      to {
+        text-shadow: 0 0 25px #00fff7, 0 0 40px #00fff7cc;
+      }
     }
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     @keyframes slideIn {
-      from { transform: translateX(-100px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
+      from {
+        transform: translateX(-120px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
     }
     .tab-section:hover {
-      background: rgba(255, 0, 127, 0.05);
-      transition: background 0.5s;
-      border-radius: 10px;
+      background: rgba(255, 0, 170, 0.07);
+      transition: background 0.4s;
+      border-radius: 12px;
     }
   </style>
 </head>
